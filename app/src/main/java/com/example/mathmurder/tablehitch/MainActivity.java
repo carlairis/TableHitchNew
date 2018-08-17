@@ -9,11 +9,16 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerNb;
     private RadioButton share, notShare;
     private Button seatsButton;
+
+    // Firebase instance variables
+    //private FirebaseAuth mFirebaseAuth;
+ //   private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         seatsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoadingActivity.class);
+                Intent intent = new Intent(MainActivity.this, ReservationActivity.class);
                 startActivity(intent);
             }
         });

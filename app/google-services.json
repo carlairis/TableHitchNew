@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "545785820733",
+    "firebase_url": "https://tablehitch.firebaseio.com",
+    "project_id": "tablehitch",
+    "storage_bucket": "tablehitch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545785820733:android:a7bc763922daf011",
+        "android_client_info": {
+          "package_name": "com.example.mathmurder.tablehitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545785820733-v2smik146n5gmq6vprd2a05rofopn91e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqNAt7e16tfvq1fsZXNqHZc6Uvxw0D4KM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/profileNav"
+            android:title="Profile" />
+        <item
+            android:id="@+id/seatNav"
+            android:title="Find a seat" />
+        <item
+            android:id="@+id/foodNav"
+            android:title="Order Food" />
+        <item
+            android:id="@+id/payNav"
+            android:title="Add Payment" />
+        <item
+            android:id="@+id/rewardNav"
+            android:title="Rewards Catalogue" />
+        <item
+            android:id="@+id/historyNav"
+            android:title="History" />
+    </group>
+
+</menu>
