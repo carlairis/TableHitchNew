@@ -4,9 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ReservationActivity"
     tools:showIn="@layout/activity_reservation">
+
+    <GridLayout
+        android:layout_marginTop="100dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="1"
+        android:columnCount="2">
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seats booked for: " />
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTimer"
+            android:text="15:00" />
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@android:color/holo_orange_dark"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Booking Information"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:id="@+id/tvTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Table: 12"
+            android:textSize="20dp" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:id="@+id/tvSeats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seats: 5,6,7"
+            android:textSize="20dp" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to see map: "
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/mapIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle_shape"
+            app:srcCompat="@drawable/locationicon"
+            android:onClick="mapIntent"/>
+
+    </LinearLayout>
+
+
+
 
 
 
