@@ -1,6 +1,7 @@
 package com.example.mathmurder.tablehitch;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,23 +12,29 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerNb;
     private RadioButton share, notShare;
-    private Button seatsButton;
+    private Button seatsButton, orderButton;
 
 
     private NavigationView nDrawer;
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mDrawerToggle;
 
+
+    public SharedPreferences preferences;
+
+    private String toastText = "Please select an option";
     // Firebase instance variables
     //private FirebaseAuth mFirebaseAuth;
  //   private FirebaseUser mFirebaseUser;
@@ -55,11 +62,31 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerNb  = (Spinner) findViewById(R.id.spinnerSeatNb);
 
+        preferences = getSharedPreferences("numberSeats", MODE_PRIVATE);
+
+
         String[] num = {"1","2","3","4","5","6"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, num);
 
         spinnerNb.setAdapter(adapter);
+
+        spinnerNb.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String seats = spinnerNb.getItemAtPosition(i).toString();
+
+                int seatsInt = Integer.parseInt(seats);
+
+                preferences.edit().putInt("nb",seatsInt).apply();
+                System.out.println("number of seats"+seatsInt);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         share= (RadioButton) findViewById(R.id.radioShare);
@@ -71,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(share.isChecked()){
                     notShare.setChecked(false);
+
                 }
 
             }
@@ -90,14 +118,36 @@ public class MainActivity extends AppCompatActivity {
         seatsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ReservationActivity.class);
+
+                if(share.isChecked() == false && notShare.isChecked()==false){
+                    Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, LoadingActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+
+        orderButton = (Button) findViewById(R.id.ordrFoodButt);
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FoodStallsActivity.class);
                 startActivity(intent);
             }
         });
 
 
 
+
     }
+
+
+
+
 
 
     @Override
@@ -109,4 +159,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

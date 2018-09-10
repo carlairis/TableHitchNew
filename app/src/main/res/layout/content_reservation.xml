@@ -9,28 +9,40 @@
     tools:context=".ReservationActivity"
     tools:showIn="@layout/activity_reservation">
 
-    <GridLayout
-        android:layout_marginTop="100dp"
-        android:padding="15dp"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="1"
-        android:columnCount="2">
+        android:layout_marginTop="100dp"
+        android:columnCount="2"
+        android:padding="15dp"
+        android:rowCount="1">
 
         <TextView
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seats booked for: " />
-        <TextView
-            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvTimer"
-            android:text="15:00" />
-    </GridLayout>
+            android:text="Seats booked for: 15 minutes"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
 
-    <LinearLayout
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15:00"
+            android:textColor="@android:color/black"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/timer_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginLeft="15dp"
@@ -43,6 +55,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Booking Information"
@@ -52,39 +66,58 @@
 
 
         <TextView
-            android:textColor="@android:color/black"
             android:id="@+id/tvTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="57dp"
             android:text="Table: 12"
+            android:textColor="@android:color/black"
             android:textSize="20dp" />
 
         <TextView
-            android:textColor="@android:color/black"
             android:id="@+id/tvSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTable"
+            android:layout_centerHorizontal="true"
             android:text="Seats: 5,6,7"
+            android:textColor="@android:color/black"
             android:textSize="20dp" />
 
         <TextView
-            android:textColor="@android:color/black"
+            android:id="@+id/clickMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/mapIcon"
+            android:layout_alignStart="@+id/clickMap"
+            android:layout_marginBottom="-141dp"
             android:text="Click to see map: "
+            android:textColor="@android:color/black"
             android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/mapIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/rectangle_shape"
-            app:srcCompat="@drawable/locationicon"
-            android:onClick="mapIntent"/>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="105dp"
+            android:layout_marginTop="103dp"
+            android:onClick="mapIntent"
+            app:srcCompat="@drawable/locationicon" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:text="Click here to order food!"
+        android:onClick="menuIntent"/>
 
 
 

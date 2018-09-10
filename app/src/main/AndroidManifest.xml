@@ -27,6 +27,10 @@
         <activity
             android:name=".MapActivity"
             android:label="@string/title_activity_map"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FoodStallsActivity"
+            android:label="@string/title_activity_food_stalls"
             android:theme="@style/AppTheme"></activity>
     </application>
 
