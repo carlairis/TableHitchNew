@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     //private FirebaseAuth mFirebaseAuth;
  //   private FirebaseUser mFirebaseUser;
 
+
+    public PullMapData pulling;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
         share= (RadioButton) findViewById(R.id.radioShare);
         notShare = (RadioButton) findViewById(R.id.radioNotShare);
+
+
+
+
 
 
         share.setOnClickListener(new View.OnClickListener() {

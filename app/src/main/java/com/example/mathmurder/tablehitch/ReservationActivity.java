@@ -44,7 +44,7 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
 
     public PullMapData pulling = new PullMapData();
 
-    private TextView seatsBooked;
+    private TextView seatsTV;
 
     public SharedPreferences preferences;
 
@@ -93,6 +93,12 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
         seatNb = preferences.getInt("nb", 0);
 
         System.out.println("this is what we are printing"+seatNb);
+
+
+        seatsTV = (TextView) findViewById(R.id.tvSeats);
+        seatsTV.setText("Seats:" +User.getBookedSeats().toString());
+
+
 
 
 

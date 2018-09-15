@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +9,431 @@
     android:orientation="vertical"
     tools:showIn="@layout/activity_map">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="Seats Map:"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="86dp"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/red_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:text="Occupied" />
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/green_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:text="Available " />
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/blue_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:text="Booked Seats" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="134dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="Coffee Shop"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="225dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="81dp"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="Food Stalls"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="225dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="81dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="AC room"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+
+    <!-- Table 1-->
+    <ImageView
+        android:id="@+id/seat1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat6"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat7"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+    <ImageView
+        android:id="@+id/seat8"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+
+
+
+
+
+    <!-- Table 3-->
+
+    <ImageView
+        android:id="@+id/seat13"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat14"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat15"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat16"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat17"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat18"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat19"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+    <ImageView
+        android:id="@+id/seat20"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+
+
+
+
+    <!-- Table 2-->
+
+    <ImageView
+        android:id="@+id/seat9"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="225dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat10"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="250dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat11"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="225dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat12"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="250dp"
+        android:background="@drawable/green_rectangle" />
+
+
+
+
+
+
+<!-- Table 4-->
+    <ImageView
+        android:id="@+id/seat21"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="225dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat22"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="250dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:id="@+id/seat23"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="225dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:id="@+id/seat24"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="125dp"
+        android:layout_marginStart="250dp"
+        android:background="@drawable/green_rectangle" />
+
+
+
+
+    <!-- Table labels-->
+    <TextView
+        android:id="@+id/table1"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="214dp"
+        android:text="Table 1" />
+
+
+    <TextView
+        android:id="@+id/table2"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="214dp"
+        android:text="Table 2" />
+
+    <TextView
+        android:id="@+id/table3"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="313dp"
+        android:text="Table 3" />
+
+    <TextView
+        android:id="@+id/table4"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="313dp"
+        android:text="Table 4" />
+
+
+
+
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,7 +503,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@drawable/rectangle_shape"
-        android:text="Coffe Shop"/>
+        android:text="Coffee Shop"/>
 
 
 
@@ -220,6 +645,6 @@
 
     </LinearLayout>
 
+-->
 
-
-</LinearLayout>
+</RelativeLayout>

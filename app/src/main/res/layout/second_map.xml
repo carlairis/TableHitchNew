@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:text="Seats Map:"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="152dp"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/red_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:text="Occupied" />
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/green_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:text="Available " />
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:src="@drawable/blue_rectangle"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:text="Booked Seats" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="191dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="Coffee Shop"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="17dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="Food Stalls"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/rectangle_shape"
+        android:gravity="center"
+        android:text="AC room"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="100dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/green_rectangle" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/green_rectangle" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="225dp"
+        android:layout_marginStart="175dp"
+        android:background="@drawable/green_rectangle" />
+
+
+</RelativeLayout>

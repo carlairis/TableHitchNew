@@ -127,6 +127,8 @@ public class PullMapData {
                 if(Seat.getSeatsStatus().get(e+1) == 0 && count < seatNb){
                     System.out.println("works? 3");
                     writeNewSeat(e+1, 2);
+                    User.getInstance().getBookedSeats().add(e+1);
+
                     count++;
 
                 }

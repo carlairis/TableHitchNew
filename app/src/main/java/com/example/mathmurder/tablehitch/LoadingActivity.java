@@ -26,11 +26,11 @@ public class LoadingActivity extends AppCompatActivity {
     private DatabaseReference db;
     private HashMap<Integer, Integer> seatsMap = new HashMap<>();
 
-    public SharedPreferences preferences =getSharedPreferences("numberSeats", MODE_PRIVATE);
-    ;
+    public SharedPreferences preferences ;
+
 
     int x = 0;
-    int seatNb = preferences.getInt("nb", 0);
+    int seatNb;
 
 
     @Override
@@ -49,7 +49,9 @@ public class LoadingActivity extends AppCompatActivity {
             }
         });*/
 
+        preferences =getSharedPreferences("numberSeats", MODE_PRIVATE);
 
+        seatNb = preferences.getInt("nb", 0);
 
         db = pulling.getmDatabase();
 
@@ -67,6 +69,8 @@ public class LoadingActivity extends AppCompatActivity {
 //               Seat.addSeat(keyInt, value);
                 seatsMap.put(keyInt, value);
                 Seat.getInstance().getSeatsStatus().put(keyInt, value);
+
+
                 System.out.println("x = "+x);
                 System.out.println("map shit = "+ seatsMap.size());
 
@@ -97,7 +101,7 @@ public class LoadingActivity extends AppCompatActivity {
             }
         });
 
-        new CountDownTimer(5000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
+        new CountDownTimer(6000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
 
             public void onTick(long millisUntilFinished) {
             }
