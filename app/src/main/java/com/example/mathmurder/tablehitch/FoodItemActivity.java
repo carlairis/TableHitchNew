@@ -2,24 +2,21 @@ package com.example.mathmurder.tablehitch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class FoodItemActivity extends AppCompatActivity {
 
-    private GridView menuItems;
+    private GridView gridView;
 
     int[] images = {R.drawable.economicrice, R.drawable.koreanjapanese, R.drawable.thaivietnamese,
             R.drawable.chickenrice,R.drawable.indianfoodshop, R.drawable.westernfood, R.drawable.muslimfoodshop,
@@ -63,7 +60,7 @@ public class FoodItemActivity extends AppCompatActivity {
             }
         });
 
-        menuItems = (GridView) findViewById(R.id.foodListGV);
+        gridView = (GridView) findViewById(R.id.foodListGV);
 
         final CustomAdapter customAdapter = new CustomAdapter();
 
@@ -71,7 +68,7 @@ public class FoodItemActivity extends AppCompatActivity {
         Intent intentA = getIntent();
         position = intentA.getIntExtra("position", 0);
         System.out.println("position"+position);
-        menuItems.setAdapter(customAdapter);
+        gridView.setAdapter(customAdapter);
 
 
         if (position == 0){
@@ -162,6 +159,15 @@ public class FoodItemActivity extends AppCompatActivity {
 
 
 
+        gridView.setClickable(true);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                Intent intent = new Intent (FoodItemActivity.this, OrderActivity.class);
+                intent.putExtra("pos", pos);
+                startActivity(intent);
+            }
+        });
     }
 
     class CustomAdapter extends BaseAdapter {
