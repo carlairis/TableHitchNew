@@ -26,11 +26,12 @@ public class LoadingActivity extends AppCompatActivity {
     private DatabaseReference db;
     private HashMap<Integer, Integer> seatsMap = new HashMap<>();
 
-    public SharedPreferences preferences ;
+    public SharedPreferences preferences, sharedPreferences;
 
 
     int x = 0;
     int seatNb;
+    String sharingStatus;
 
 
     @Override
@@ -40,23 +41,20 @@ public class LoadingActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
-        preferences =getSharedPreferences("numberSeats", MODE_PRIVATE);
 
+        preferences = getSharedPreferences("numberSeats", MODE_PRIVATE);
         seatNb = preferences.getInt("nb", 0);
 
+        sharedPreferences = getSharedPreferences("sharing", MODE_PRIVATE);
+        sharingStatus = sharedPreferences.getString("status", "");
+
+
+        System.out.println("seat number= "+seatNb);
         db = pulling.getmDatabase();
 
 
-        db.getParent().addChildEventListener(new ChildEventListener() {
+       db.getParent().addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 int value = dataSnapshot.getValue(Integer.class);
@@ -75,6 +73,7 @@ public class LoadingActivity extends AppCompatActivity {
                 System.out.println("map shit = "+ seatsMap.size());
 
                 x++;
+
 
 
 
@@ -101,13 +100,37 @@ public class LoadingActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
+
+
+
         new CountDownTimer(6000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
 
             public void onTick(long millisUntilFinished) {
+
             }
             public void onFinish(){
-                System.out.println("DONE!");
-                pulling.bookSeats(seatNb);
+
+
+
+
+                if (sharingStatus.equals("true")){
+
+                    pulling.bookSharingSeatsV2(seatNb);
+
+
+                }else if (sharingStatus.equals("false")){
+                    pulling.bookSeats(seatNb);
+
+                }
+              //  pulling.fillTables();
+
+                System.out.println("DONE!" +sharingStatus);
+
+                System.out.println("WHAT = "+Seat.getSeatsStatus().get(1));
                 reservationIntent();
             }
         }.start();

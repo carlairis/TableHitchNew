@@ -37,6 +37,9 @@ public class PullMapData {
     int x= 0;
 
     int count =1;
+    private int tableID = 0;
+
+    private Boolean sharing= false;
 
     // Write a message to the database
  //   DatabaseReference myRef = database.getReference("message");
@@ -121,11 +124,10 @@ public class PullMapData {
 
     public void bookSeats(int seatNb){
         for(int i = 0; i<seatNb; i++){
-            System.out.println("works? 1"+Seat.getSeatsStatus().size());
             for (int e = 1; e<Seat.getSeatsStatus().size(); e++){
-                System.out.println("works? 2");
-                if(Seat.getSeatsStatus().get(e+1) == 0 && count < seatNb){
-                    System.out.println("works? 3");
+                //if(Seat.getSeatsStatus().get(e+1) == 0 && count < seatNb){
+                if(Seat.getSeatsStatus().get(e) == 0 && count < seatNb){
+
                     writeNewSeat(e+1, 2);
                     User.getInstance().getBookedSeats().add(e+1);
 
@@ -138,6 +140,101 @@ public class PullMapData {
 
         }
     }
+
+
+
+
+
+
+    public void bookSharingSeatsV2(int seatNb){
+
+        System.out.println("goes there");
+        for (int i = 0; i<seatNb; i++){
+            System.out.println("shared table one");
+
+            for (int e = 1; e<9; e++){
+                System.out.println("shared table two");
+
+                if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb+1){
+
+                    writeNewSeat(e+1+i, 2);
+                    User.getInstance().getBookedSeats().add(e+1+i);
+
+                    System.out.println("shared table");
+                    count++;
+
+                }
+            }
+
+
+            for (int e = 9; e<13; e++){
+                System.out.println("shared table one");
+
+                if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb+1){
+                    System.out.println("shared table two");
+
+                    writeNewSeat(e+1+i, 2);
+                    User.getBookedSeats().add(e+1+i);
+
+
+                    count++;
+
+                    System.out.println("count"+count);
+                }
+            }
+
+
+            for (int e = 13; e<21; e++){
+
+                if(Seat.getSeatsStatus().get(e)!=0  && count<seatNb+1){
+
+                    writeNewSeat(e+1+i, 2);
+                    User.getInstance().getBookedSeats().add(e+1+i);
+
+                    System.out.println("shared table");
+                    count++;
+
+                }
+            }
+
+
+            for (int e = 21; e<25; e++){
+
+                if(Seat.getSeatsStatus().get(e)!=0 && count<seatNb+1 && e!=24){
+
+                    writeNewSeat(e+1+i, 2);
+                    User.getInstance().getBookedSeats().add(e+1+i);
+
+                    System.out.println("shared table");
+                    count++;
+
+                }
+            }
+
+        }
+    }
+
+
+    public void fillTables(){
+        for(int a = 0; a<Seat.getSeatsStatus().size(); a++){
+            System.out.println("this is a = "+ a+1);
+            System.out.println("this is the seat id = "+ Seat.getSeatsStatus().get(a+1));
+
+            if(a >0 && a<9){
+                Seat.getTable1().add((a+1), Seat.getSeatsStatus().get(a+1));
+            }else if(a >8 && a<13){
+                Seat.getTable2().add((a+1), Seat.getSeatsStatus().get(a+1));
+
+            }else if(a >12 && a<21){
+                Seat.getTable3().add((a+1), Seat.getSeatsStatus().get(a+1));
+
+            }else if(a >20 && a<25){
+                Seat.getTable4().add((a+1), Seat.getSeatsStatus().get(a+1));
+
+            }
+        }
+    }
+
 
 
 }

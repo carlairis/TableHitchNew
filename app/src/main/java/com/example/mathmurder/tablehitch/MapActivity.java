@@ -77,14 +77,19 @@ public class MapActivity extends AppCompatActivity {
         System.out.println("size = "+Seat.getSeatsStatus().size());
 
         for (int i=0; i<Seat.getSeatsStatus().size(); i++){
+            if (i == 24){
+                break;
+            }
             int seatID = Seat.getSeatsStatus().get(i+1);
+
+
 
             if (seatID == 0){
                 System.out.println("free seat");
             }
-            else if (seatID == 1){
+            else if (seatID != 0){
                 System.out.println("booked seat");
-                seatsColor.get(seatID).setImageResource(R.drawable.red_rectangle);
+                seatsColor.get(i).setImageResource(R.drawable.red_rectangle);
             }
         }
 

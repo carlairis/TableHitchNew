@@ -46,7 +46,7 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
 
     private TextView seatsTV;
 
-    public SharedPreferences preferences;
+    public SharedPreferences preferences, sharedPreferences;
 
     private DatabaseReference db;
 
@@ -57,6 +57,7 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
     int x=1;
 
     int count = 1;
+    String sharingStatus;
 
     int seatNb;
 
@@ -95,6 +96,21 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
         System.out.println("this is what we are printing"+seatNb);
 
 
+        sharedPreferences = getSharedPreferences("sharing", MODE_PRIVATE);
+        sharingStatus = sharedPreferences.getString("status", "");
+
+
+   /*     if (sharingStatus.equals("true")){
+
+            pulling.bookSharingSeatsV2(seatNb);
+
+
+        }else if (sharingStatus.equals("false")){
+            pulling.bookSeats(seatNb);
+
+        }*/
+
+
         seatsTV = (TextView) findViewById(R.id.tvSeats);
         seatsTV.setText("Seats:" +User.getBookedSeats().toString());
 
@@ -116,100 +132,11 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
 
        db = pulling.getmDatabase();
 
-   //    pulling.doSomething();
 
-    /*   db.getParent().addChildEventListener(new ChildEventListener() {
-           @Override
-           public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-               int value = dataSnapshot.getValue(Integer.class);
-
-               System.out.println("value = "+value+", data snapchot value"+dataSnapshot.getKey().toString());
-               String key = dataSnapshot.getKey().toString();
-               key = key.replaceAll("\\D", "");
-
-               int keyInt = Integer.parseInt(key);
-//               Seat.addSeat(keyInt, value);
-               seatsMap.put(keyInt, value);
-               Seat.getInstance().getSeatsStatus().put(keyInt, value);
-               System.out.println("x = "+x);
-               System.out.println("map shit = "+ seatsMap.size());
-
-               x++;
-
-
-
-           }
-
-           @Override
-           public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-           }
-
-           @Override
-           public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-           }
-
-           @Override
-           public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-           }
-
-           @Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
-
-           }
-       });
-
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            //handle
-        }
-*/
 
         System.out.println("size"+Seat.getSeatsStatus().size());
 
 
-
-    //   Seat.setSeatsStatus(seatsMap);
-
-   /*    db.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(DataSnapshot dataSnapshot) {
-               // This method is called once with the initial value and again
-               //whenever data at this location is updated.
-
-               pulling.readNewSeat(dataSnapshot);
-
-
-               for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                  // seat = singleSnapshot.getValue(Seat.class);
-
-                   String otherVal = singleSnapshot.getValue(String.class);
-
-                   System.out.println("value = "+otherVal);
-               }
-
-               String value = dataSnapshot.getValue(String.class);
-               Log.d(TAG, "Value is: " + value);
-
-             //  String otherVal = dataSnapshot.getValue(String.class);
-           //    System.out.println("value = "+otherVal);
-
-             //  seatsMap.put(x, otherVal);
-               x++;
-               //Log.d(TAG, "Value is: " + value);
-           }
-
-           @Override
-           public void onCancelled(DatabaseError error) {
-               // Failed to read value
-               Log.w(TAG, "Failed to read value.", error.toException());
-           }
-       });
-
-       */
 
 
     }

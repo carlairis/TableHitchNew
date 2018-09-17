@@ -2,6 +2,8 @@ package com.example.mathmurder.tablehitch;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +21,15 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
 
 
-    public SharedPreferences preferences;
+    public SharedPreferences preferences, sharedPreferences;
 
     private String toastText = "Please select an option";
     // Firebase instance variables
@@ -40,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
  //   private FirebaseUser mFirebaseUser;
 
 
-    public PullMapData pulling;
+
+    public PullMapData pulling = new PullMapData();
+    private DatabaseReference db;
+    private HashMap<Integer, Integer> seatsMap = new HashMap<>();
+    int x = 0;
+
 
 
     @Override
@@ -68,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("numberSeats", MODE_PRIVATE);
 
+        sharedPreferences = getSharedPreferences("sharing", MODE_PRIVATE);
 
         String[] num = {"1","2","3","4","5","6"};
 
@@ -93,10 +110,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         share= (RadioButton) findViewById(R.id.radioShare);
         notShare = (RadioButton) findViewById(R.id.radioNotShare);
-
-
 
 
 
@@ -108,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                     notShare.setChecked(false);
 
                 }
+                sharedPreferences.edit().putString("status","true").apply();
+
 
             }
         });
@@ -119,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                 if(notShare.isChecked()){
                     share.setChecked(false);
                 }
+                sharedPreferences.edit().putString("status","false").apply();
+
             }
         });
 
@@ -151,6 +192,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+      //  pulling.doSomething();
+
+
+
+
     }
 
 
@@ -168,6 +217,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    public void fillTables(){
+    }
 
 
 }
