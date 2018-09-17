@@ -1,5 +1,6 @@
 package com.example.mathmurder.tablehitch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -40,6 +41,7 @@ public class FoodStallsActivity extends AppCompatActivity
             "Fruit Juices"
     };
 
+    int count  = 1;
 
 
     @Override
@@ -95,70 +97,62 @@ public class FoodStallsActivity extends AppCompatActivity
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if (position == 0){
-                    System.out.println("print");
-                    stalls = null;
-                    stalls = new String[]{"Ban Mian", "Fried Tofu", "Eggplant", "Potatoes", "Sausage", "Pork", "Beef", "Fish", "Fried Chicken"};
-
-                    customAdapter.notifyDataSetChanged();
+                if (position == 0 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
 
-                } else if(position == 1){
-                    stalls = null;
-                    stalls = new String[]{"Chicken Ramen", "BBQ chicken set", "Omelette Rice" , "Bimbimbap", "Bulgogi","Gimbap","Fish Curry Rice","Tteok-booki", "Chicken + Prawn Bento"};
 
-                    customAdapter.notifyDataSetChanged();
+                } else if(position == 1 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
-                } else if(position ==2){
-                    stalls = null;
-                    stalls = new String[]{"Vietnamese Braised Chicken","Thai Tom Yum Seafood Soup","Vietnamese Grilled Pork w Rice & Egg", "Phad Thai w/Egg" , "Vermicelli w/ Grilled Pork & Fried Spring Roll","Thai Basil Leaf Minced Chicken Set", "Viet Sliced Beef Kway Teow Soup","Thai Tom Yum Fried Mee", "Vietnamese Style Drumstick Wrap w Glutinous Rice"};
-
-                    customAdapter.notifyDataSetChanged();
-
-
-                }else if (position == 3){
-                    stalls = null;
-                    stalls = new String[]{"Roasted chicken rice","Steamed chicken rice", "Char siew rice", "Roasted pork rice" , "Roasted pork noodle","Roasted pork noodle", "Roasted duck noodle","Curry Chicken Noodle","Rice porridge"};
-
-                    customAdapter.notifyDataSetChanged();
-
-                }else if (position == 4){
-                    stalls = null;
-                    stalls = new String[]{"Butter chicken","Chicken 65", "South Indian meal", "Oaratha set" , "Garlic naan","Chappathi set","Tandoori","Fried rice","Chicken masala"};
-
-                    customAdapter.notifyDataSetChanged();
-
-                } else if (position == 5) {
-                    stalls = null;
-                    stalls = new String[]{"Fish and chips","Tomato pasta", "Chicken cutlet", "Breakfast set" , "Aglio olio","Chilled australian striploin S grade 180G","Honey soy chicken","Beef burger set","Mushroom cream pasta"};
-
-                    customAdapter.notifyDataSetChanged();
-
-                }else if (position == 6){
-                    stalls = null;
-                    stalls = new String[]{"Nasi Lemak Set","Ayam Penyet", "Ikan Penyet", "Lontong" , "Mee Rebus","Mee Soto","Economical Beehoon","Mee Goreng","Briyani"};
-
-                    customAdapter.notifyDataSetChanged();
+                } else if(position ==2 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
 
-                }else if(position== 7){
-                    stalls = null;
-                    stalls = new String[]{"Mala hotpot","Mala Xiang Guo", "Spicy Fried Chicken","GreenPepper w sliced potato" , "Sichuan Boiled Beef","Minced Pork Rice", "Sauteed Pork w Pepper & Chilli","Olive Stir Fried Green Bean","Braised Beef Rice"};
+                }else if (position == 3 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
-                    customAdapter.notifyDataSetChanged();
+
+                }else if (position == 4 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+
+                } else if (position == 5 && count == 1) {
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
 
-                }else if (position == 8){
-                    stalls = null;
-                    stalls = new String[]{"Milk","Coke", "Coffee plus milo", "Milo" , "Milk tea","Cafe Latte","Espresso","Tuna sandwich","Chocolate cake"};
+                }else if (position == 6 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
-                    customAdapter.notifyDataSetChanged();
 
-                }else if(position == 9){
-                    stalls = null;
-                    stalls = new String[]{"Apple juice","Pineapple juice", "Watermelon juice", "Kiwi juice" , "Orange juice","Carrot juice","Grape juice","Mango juice","Lime juice"};
 
-                    customAdapter.notifyDataSetChanged();
+                }else if(position== 7 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+
+                }else if (position == 8 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+
+                }else if(position == 9 && count == 1){
+                    Intent intent = new Intent( FoodStallsActivity.this, FoodItemActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
 
                 }
 

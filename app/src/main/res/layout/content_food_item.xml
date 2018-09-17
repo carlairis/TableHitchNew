@@ -4,31 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".FoodStallsActivity"
-    tools:showIn="@layout/app_bar_food_stalls">
+    tools:context=".FoodItemActivity"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_food_item">
+
 
     <TextView
         android:id="@+id/pageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/food_stalls"
+        android:text="Menu Items"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:textColor="@android:color/black"
         android:textSize="30sp"/>
 
-    <ListView
-        android:id="@+id/stallListV"
+    <GridView
+        android:id="@+id/foodListGV"
         android:layout_width="match_parent"
-
+        android:numColumns="2"
         android:scrollbarSize="15dp"
         android:layout_height="wrap_content">
 
-    </ListView>
-
-
+    </GridView>
 
 </LinearLayout>
