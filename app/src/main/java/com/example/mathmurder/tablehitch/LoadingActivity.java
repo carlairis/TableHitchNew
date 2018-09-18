@@ -33,6 +33,8 @@ public class LoadingActivity extends AppCompatActivity {
     int seatNb;
     String sharingStatus;
 
+    static boolean cancelledClick = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,7 @@ public class LoadingActivity extends AppCompatActivity {
 
 
 
+
         new CountDownTimer(6000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
 
             public void onTick(long millisUntilFinished) {
@@ -142,7 +145,10 @@ public class LoadingActivity extends AppCompatActivity {
                 System.out.println("DONE!" +sharingStatus);
 
                 System.out.println("WHAT = "+Seat.getSeatsStatus().get(1));
-                reservationIntent();
+                if(!cancelledClick){
+                    reservationIntent();
+
+                }
             }
         }.start();
 
@@ -153,6 +159,26 @@ public class LoadingActivity extends AppCompatActivity {
 
     public void reservationIntent(){
         Intent intent = new Intent(this, ReservationActivity.class);
+        startActivity(intent);
+    }
+
+    public void cancelBooking(View view){
+        cancelledClick =true;
+
+        if(Seat.getSeatsStatus().isEmpty()==false){
+            Seat.getSeatsStatus().clear();
+        }
+        else{
+            System.out.println("its empty)");
+        }
+    //    if(!User.getBookedSeats().isEmpty()){
+    //        User.getBookedSeats().clear();
+     //   }
+      //  else{
+       //     System.out.println("its empty)");
+      //  }
+
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
