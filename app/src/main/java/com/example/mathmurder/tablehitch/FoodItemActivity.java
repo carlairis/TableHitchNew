@@ -71,10 +71,12 @@ public class FoodItemActivity extends AppCompatActivity {
         gridView.setAdapter(customAdapter);
 
 
+        images = null;
         if (position == 0){
             stalls = null;
             stalls = new String[]{"Ban Mian", "Fried Tofu", "Eggplant", "Potatoes", "Sausage", "Pork", "Beef", "Fish", "Fried Chicken", "Sweet and Sour Pork"};
             prices = new String[]{"$4", "$2","$1","$1","$3","$3","$3","$3","$3","$3"};
+            images = new int[]{R.drawable.banmian, R.drawable.friedtofu, R.drawable.eggplant, R.drawable.potato, R.drawable.sausage, R.drawable.pork, R.drawable.beef, R.drawable.fish, R.drawable.friedchicken, R.drawable.sweetandsourpork};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -83,6 +85,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Chicken Ramen", "BBQ chicken set", "Omelette Rice" , "Bimbimbap", "Bulgogi","Gimbap","Fish Curry Rice","Tteok-booki", "Chicken + Prawn Bento", "Karage Chicken set"};
             prices = new String[]{"$3.50", "$4.50","$4","$3.50","$4","$2.90","$3","$4.50","$5","$3.50"};
+            images = new int[]{R.drawable.chickenramen, R.drawable.bbqchickenset, R.drawable.omeletterice, R.drawable.bibimbap, R.drawable.bulgogi, R.drawable.gimbap, R.drawable.fishcurryrice, R.drawable.tteokbokki, R.drawable.karagechicken};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -91,6 +94,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Vietnamese Braised Chicken","Thai Tom Yum Seafood Soup","Vietnamese Grilled Pork w Rice & Egg", "Pad Thai w/Egg" , "Tofu Pad Thai", "Vermicelli w/ Grilled Pork & Fried Spring Roll","Thai Basil Leaf Minced Chicken Set", "Viet Sliced Beef Kway Teow Soup","Thai Tom Yum Fried Mee", "Vietnamese Style Drumstick Wrap w Glutinous Rice"};
             prices = new String[]{"$3.50", "$3.50","$5.50","$4","$4.50","$4.50","$4","$3","$3.50","$4.50"};
+            images = new int[]{R.drawable.vietnamesebraisedchicken, R.drawable.tomyumseafoodsoup, R.drawable.grilledporkwithriceandegg, R.drawable.phadthaiegg, R.drawable.tofupadthai, R.drawable.vermicelligrilledporkspringroll, R.drawable.basilleafmincedchickenset, R.drawable.slicedbeefkwayteowsoup, R.drawable.tomyumfriedmee, R.drawable.drumstickwrapwithglutinousrice};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -100,6 +104,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Roasted chicken rice", "Steamed chicken rice", "Roasted Duck rice", "Char siew rice", "Roasted pork rice" , "Roasted pork noodle","Roasted chicken noodle", "Roasted duck noodle","Curry Chicken Noodle","Rice porridge"};
             prices = new String[]{"$3", "$3","$3.5O","$3.5O","$3","$3.50","4.50","$4","$4","$4"};
+            images = new int[]{R.drawable.roastedchickenrice, R.drawable.steamedchickenrice, R.drawable.roastedduckrice, R.drawable.charsiewrice, R.drawable.roastedporkrice, R.drawable.roastedporknoodle, R.drawable.roastedducknoodle, R.drawable.charsiewwantonnoodle, R.drawable.riceporridge};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -108,6 +113,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Butter chicken","Chicken 65", "South Indian meal", "Oaratha set" , "Egg Prata", "Garlic naan","Chappathi set","Tandoori","Fried rice","Chicken masala"};
             prices = new String[]{"$3.50", "$4","$4.50","$3.50","$1.50","$1","$2.50","$4","$3","$3.50"};
+            images = new int[]{R.drawable.butterchicken, R.drawable.chicken65, R.drawable.southindianmeal, R.drawable.oarathaset, R.drawable.eggprata, R.drawable.garlicnaan, R.drawable.chappathiset, R.drawable.tandoori, R.drawable.friedrice, R.drawable.chickenmasala};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -116,6 +122,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Fish and chips","Tomato pasta", "Chicken cutlet", "Breakfast set" , "Cheese Fries", "Aglio olio","Chilled australian striploin S grade 180G","Honey soy chicken","Beef burger set","Mushroom cream pasta"};
             prices = new String[]{"$4.50", "$3.50","$3.50","$3","$2.90","$3","$6","$4","$5","$3"};
+            images = new int[]{R.drawable.fishandchips, R.drawable.tomatpasta, R.drawable.chickencutlet, R.drawable.breakfastset, R.drawable.cheesefries, R.drawable.aglioolio, R.drawable.chilledaustraliantriploin, R.drawable.honeysoychicken, R.drawable.beefburgerset, R.drawable.mushroomcreampasta};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -124,6 +131,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Nasi Lemak Set","Ayam Penyet", "Ikan Penyet", "Lontong" , "Mee Rebus","Mee Soto","Economical Beehoon","Mee Goreng","Briyani", "Curry Puff"};
             prices = new String[]{"$4", "$3.50","$3.50","$3","$4.50","$3.50","$2","$3","$2.50","$0.50"};
+            images = new int[]{R.drawable.yanpenyet,R.drawable.ayanpenyet, R.drawable.ikanpenyet, R.drawable.lontong, R.drawable.meesoto, R.drawable.economicalbeehoon, R.drawable.meegoreng, R.drawable.briyani, R.drawable.currypuff};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -133,6 +141,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Mala hotpot","Mala Xiang Guo", "Spicy Fried Chicken","GreenPepper w sliced potato" , "Sichuan Boiled Beef","Minced Pork Rice", "Sauteed Pork w Pepper & Chilli","Olive Stir Fried Green Bean","Braised Beef Rice"};
             prices = new String[]{"$6.50", "$5.50","5.50","$4","$5.50","$5","$5.50","$3","$4.50","$5"};
+            images = new int[]{R.drawable.malahotpot, R.drawable.malaxiangguo, R.drawable.spicyfriedchicken, R.drawable.greenpepperwithslicedpotato, R.drawable.sichuanboiledbeef, R.drawable.sauteedporkwithpepperandchilli, R.drawable.olivestirfriedgreenbean, R.drawable.braisedbeefrice};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -142,6 +151,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Milk","Coke", "SoyBean Drink", "Coffee plus milo", "Milo" , "Milk tea","Cafe Latte","Espresso","Tuna sandwich","Chocolate cake"};
             prices = new String[]{"$1.20", "$1.30","$1.20","$1.70","$1.50","$1.50","$4","$2","$2.40","$5.50"};
+            images = new int[]{R.drawable.milk, R.drawable.coke, R.drawable.soymilk, R.drawable.coffeeplusmilo, R.drawable.milo, R.drawable.milktea, R.drawable.cafelatte, R.drawable.expresso, R.drawable.tunasandwich, R.drawable.chocolatecake};
             customAdapter.notifyDataSetChanged();
             count++;
 
@@ -150,6 +160,7 @@ public class FoodItemActivity extends AppCompatActivity {
             stalls = null;
             stalls = new String[]{"Apple juice","Pineapple juice", "Watermelon juice", "Soursop + DragonFruit Juice", "Kiwi juice" , "Orange juice","Carrot juice","Grape juice","Mango juice","Lime juice"};
             prices = new String[]{"$2", "$2.50","$2.50","$3","$2.50","$2","$2","$2","$2.50","$2.50"};
+            images = new int[]{R.drawable.apple, R.drawable.pineapple, R.drawable.watermelon, R.drawable.dragonfruit, R.drawable.kiwi, R.drawable.orange, R.drawable.carrot,R.drawable.grape, R.drawable.mango, R.drawable.lime};
             customAdapter.notifyDataSetChanged();
             count++;
 

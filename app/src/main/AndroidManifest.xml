@@ -39,6 +39,10 @@
         <activity
             android:name=".FoodItemActivity"
             android:label="@string/title_activity_food_item"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".NoSeatActivity"
+            android:label="@string/title_activity_no_seat"
             android:theme="@style/AppTheme"></activity>
     </application>
 

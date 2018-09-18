@@ -114,8 +114,19 @@ public class LoadingActivity extends AppCompatActivity {
             }
             public void onFinish(){
 
+                //add code to check if every seat is already booked
 
+                int count = 0;
+             /*   for(int i = 0; i<Seat.getSeatsStatus().size(); i++){
+                    if(Seat.getSeatsStatus().get(i+1) != 0){
+                        count++;
+                    }
 
+                }*/
+                if (count==24){
+                    Intent intent = new Intent(LoadingActivity.this, NoSeatActivity.class);
+                    startActivity(intent);
+                }
 
                 if (sharingStatus.equals("true")){
 

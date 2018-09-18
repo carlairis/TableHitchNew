@@ -15,4 +15,5 @@
     <string name="title_activity_order">OrderActivity</string>
     <string name="food_stalls">Food Stalls</string>
     <string name="title_activity_food_item">FoodItemActivity</string>
+    <string name="title_activity_no_seat">NoSeatActivity</string>
 </resources>
