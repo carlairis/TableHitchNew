@@ -167,6 +167,9 @@ public class FoodStallsActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            Intent intent = new Intent(FoodStallsActivity.this, MainActivity.class);
+            intent.putExtra("hasActiveBooking", true);
+            startActivity(intent);
         }
     }
 
@@ -248,4 +251,5 @@ public class FoodStallsActivity extends AppCompatActivity
             return view;
         }
     }
+
 }

@@ -5,8 +5,8 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <TextView
-        android:layout_marginTop="30dp"
+    <com.example.mathmurder.tablehitch.TitleTextView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -18,7 +18,7 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:columnCount="2"
         android:rowCount="1">
 
@@ -28,11 +28,10 @@
             android:padding="20dp"
             android:src="@drawable/sharetableicon" />
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
+            android:layout_marginTop="40dp"
             android:text="Share your table!"
             android:textColor="@android:color/black"
             android:textSize="28dp" />
@@ -47,12 +46,12 @@
 
 
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:text="How many people?"/>
+            android:textSize="21dp"
+            android:text="How many people? "/>
 
 
 
@@ -63,25 +62,28 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
+
             android:spinnerMode="dropdown"/>
 
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:textSize="21dp"
             android:text="Share a table"/>
 
         <RadioButton
-            android:id="@+id/radioShare"/>
+            android:id="@+id/radioShare"
+            android:checked="true"/>
 
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:textSize="21dp"
             android:text="Not sharing"/>
 
         <RadioButton
@@ -95,10 +97,12 @@
         android:layout_height="59dp"
         android:layout_gravity="center"
         android:layout_marginTop="10sp"
+        android:background="@color/primary"
+        android:textColor="@color/white"
         android:text="Search for seats" />
 
 
-    <TextView
+    <com.example.mathmurder.tablehitch.ContentTextView
         android:layout_marginTop="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,7 +114,21 @@
         android:id="@+id/ordrFoodButt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order food now"
+        android:background="@color/iron"
+
+        android:padding="10dp"
+        android:text="Order food"
         android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/rewardButton"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:background="@color/primary"
+        android:textColor="@color/white"
+        android:text="Reward Catalogue" />
 
 </LinearLayout>

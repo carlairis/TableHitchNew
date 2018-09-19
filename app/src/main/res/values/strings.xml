@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TableHitch</string>
+    <string name="app_name">Table Hitch</string>
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="title_activity_reservation">ReservationActivity</string>
     <string name="nav_drawer_open">Open navigation drawer</string>

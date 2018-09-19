@@ -36,7 +36,7 @@ public class PullMapData {
 
     int x= 0;
 
-    int count =1;
+    int count =0;
     private int tableID = 0;
 
     private Boolean sharing= false;
@@ -123,19 +123,23 @@ public class PullMapData {
     }
 
     public void bookSeats(int seatNb){
-        for(int i = 0; i<seatNb; i++){
-            for (int e = 1; e<Seat.getSeatsStatus().size(); e++){
-                //if(Seat.getSeatsStatus().get(e+1) == 0 && count < seatNb){
-                if(Seat.getSeatsStatus().get(e) == 0 && count < seatNb){
+        // for NON sharing table
+        if(!LoadingActivity.cancelledClick) {
+            for(int i = 0; i<seatNb; i++){
+                for (int e = 1; e<Seat.getSeatsStatus().size(); e++){
+                    //if(Seat.getSeatsStatus().get(e+1) == 0 && count < seatNb){
+                    if(Seat.getSeatsStatus().get(e) == 0 && count < seatNb){
 
-                    writeNewSeat(e+1, 2);
-                    User.getInstance().getBookedSeats().add(e+1);
+                        writeNewSeat(e+1, 2);
+                        User.getInstance().getBookedSeats().add(e+1);
 
-                    count++;
+                        count++;
+
+                    }
 
                 }
+        }
 
-            }
 //add line here to check if the seat is taken, if not, give it to the person and change it's status)
 
         }
@@ -147,15 +151,19 @@ public class PullMapData {
 
 
     public void bookSharingSeatsV2(int seatNb){
+        //used for SHARING table with anyone
+        //numbers,
         if(!LoadingActivity.cancelledClick){
             System.out.println("goes there");
             for (int i = 0; i<seatNb; i++){
-                System.out.println("shared table one");
+
+                //i is num of ppl
+               // System.out.println("shared table one");
 
                 for (int e = 1; e<9; e++){
                     System.out.println("shared table two");
 
-                    if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb+1){
+                    if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb){
 
                         writeNewSeat(e+1+i, 2);
                         User.getInstance().getBookedSeats().add(e+1+i);
@@ -170,7 +178,7 @@ public class PullMapData {
                 for (int e = 9; e<13; e++){
                     System.out.println("shared table one");
 
-                    if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb+1){
+                    if(Seat.getSeatsStatus().get(e)!=0 && count < seatNb){
                         System.out.println("shared table two");
 
                         writeNewSeat(e+1+i, 2);
@@ -186,7 +194,7 @@ public class PullMapData {
 
                 for (int e = 13; e<21; e++){
 
-                    if(Seat.getSeatsStatus().get(e)!=0  && count<seatNb+1){
+                    if(Seat.getSeatsStatus().get(e)!=0  && count<seatNb){
 
                         writeNewSeat(e+1+i, 2);
                         User.getInstance().getBookedSeats().add(e+1+i);
@@ -200,7 +208,7 @@ public class PullMapData {
 
                 for (int e = 21; e<25; e++){
 
-                    if(Seat.getSeatsStatus().get(e)!=0 && count<seatNb+1 && e!=24){
+                    if(Seat.getSeatsStatus().get(e)!=0 && count<seatNb && e!=24){
 
                         writeNewSeat(e+1+i, 2);
                         User.getInstance().getBookedSeats().add(e+1+i);
@@ -212,6 +220,7 @@ public class PullMapData {
                 }
 
             }
+            User.rewardPoints += 50;
         }
 
 

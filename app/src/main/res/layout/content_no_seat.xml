@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:showIn="@layout/activity_no_seat">
 
-    <TextView
+    <com.example.mathmurder.tablehitch.ContentTextView
         android:layout_marginTop="50dp"
         android:padding="30dp"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:gravity="center"
         android:text="Sorry, no seats are available for now... "/>
 
-    <TextView
+    <com.example.mathmurder.tablehitch.ContentTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
@@ -29,5 +29,15 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Come back in 5 min to try again!"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:background="@color/primary"
+        android:textColor="@color/white"
+        android:text="Go back to Main"/>
 
 </LinearLayout>

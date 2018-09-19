@@ -1,14 +1,17 @@
 package com.example.mathmurder.tablehitch;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +30,17 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ReservationActivity.class));
+//                finish();
+            }
+        });
 
 
       //  pulling.doSomething();
@@ -67,11 +81,7 @@ public class MapActivity extends AppCompatActivity {
 
         seatsColor = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24));
 
-        for (int i=0; i<User.getBookedSeats().size(); i++){
-            int seatID = User.getBookedSeats().get(i);
 
-            seatsColor.get(seatID-1).setImageResource(R.drawable.blue_rectangle);
-        }
 
 
         System.out.println("size = "+Seat.getSeatsStatus().size());
@@ -91,6 +101,13 @@ public class MapActivity extends AppCompatActivity {
                 System.out.println("booked seat");
                 seatsColor.get(i).setImageResource(R.drawable.red_rectangle);
             }
+        }
+
+
+        for (int i=0; i<User.getBookedSeats().size(); i++){
+            int seatID = User.getBookedSeats().get(i);
+
+            seatsColor.get(seatID-1).setImageResource(R.drawable.blue_rectangle);
         }
 
 

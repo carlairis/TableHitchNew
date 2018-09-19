@@ -7,17 +7,19 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ReservationActivity"
+    style="@style/TestTheme"
     tools:showIn="@layout/activity_reservation">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="2"
         android:columnCount="2"
         android:padding="15dp"
         android:rowCount="1">
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Seats booked for: 15 minutes"
@@ -44,15 +46,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_weight="10"
+        android:layout_height="0dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@android:color/holo_orange_dark"
         android:orientation="vertical"
+        android:paddingTop="30dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
-        <TextView
+        <com.example.mathmurder.tablehitch.TitleTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -61,11 +65,11 @@
             android:gravity="center"
             android:text="Booking Information"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:id="@+id/tvTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +80,7 @@
             android:textColor="@android:color/black"
             android:textSize="20dp" />
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:id="@+id/tvSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,7 +90,7 @@
             android:textColor="@android:color/black"
             android:textSize="20dp" />
 
-        <TextView
+        <com.example.mathmurder.tablehitch.ContentTextView
             android:id="@+id/clickMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,16 +112,43 @@
             android:onClick="mapIntent"
             app:srcCompat="@drawable/locationicon" />
 
-    </RelativeLayout>
 
+        <com.example.mathmurder.tablehitch.ContentTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mapIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:textAlignment="center"
+            android:id="@+id/pointNotif"
+            android:text="Thank you for Sharing the Seat! You have recieved 50 points!"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:textColor="@android:color/black"
         android:layout_gravity="center"
-        android:text="Click here to order food!"
+        android:layout_marginTop= "8dp"
+        android:text="Order food"
+        android:background="@color/aluminum"
+        android:padding="10dp"
         android:onClick="menuIntent"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:background="@color/primary_dark"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Redeem Points now"
+        android:onClick="rewardIntent"/>
 
 
 

@@ -1,8 +1,11 @@
 package com.example.mathmurder.tablehitch;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +15,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class OrderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView orderReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +28,6 @@ public class OrderActivity extends AppCompatActivity
         setContentView(R.layout.activity_order);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +37,37 @@ public class OrderActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        orderReview = (TextView) findViewById(R.id.orderReview);
+        String toShow = "";
+        int price = 0;
+
+        int i = 1;
+        for (String order : FoodItemActivity.selectedItems){
+//            String[] toSplit = order.split("\t\t\t\t");
+//
+//
+//            String splitNum = toSplit[1];
+//            splitNum = splitNum.replaceAll("\\D","");
+//            int eachPrice = Integer.parseInt(splitNum);
+//           Log.i("price", "a: "+ eachPrice);
+         //   sprice += eachPrice;
+
+
+            toShow += i+". " + order +"\n";
+            i++;
+        }
+
+        orderReview.setText(toShow);
+
+        TextView total = findViewById(R.id.textView5);
+        total.setText("$4");
+
+
+
+        // after payment is done, clear the array again!
+
     }
 
     @Override
@@ -49,6 +77,8 @@ public class OrderActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            Intent intent = new Intent(OrderActivity.this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -98,4 +128,6 @@ public class OrderActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

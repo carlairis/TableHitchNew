@@ -99,6 +99,15 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
         sharedPreferences = getSharedPreferences("sharing", MODE_PRIVATE);
         sharingStatus = sharedPreferences.getString("status", "");
 
+        TextView pointNotif = (TextView) findViewById(R.id.pointNotif);
+
+        if(sharingStatus.equals("false")) {
+            pointNotif.setText("Thank you for using Table Hitch!");
+        }
+        if(sharingStatus.equals("true")){
+            pointNotif.setText("Thank you for Sharing the Seat! You have recieved 50 points!");
+        }
+
 
    /*     if (sharingStatus.equals("true")){
 
@@ -113,8 +122,6 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
 
         seatsTV = (TextView) findViewById(R.id.tvSeats);
         seatsTV.setText("Seats:" +User.getBookedSeats().toString());
-
-
 
 
 
@@ -162,14 +169,18 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
         if (id == R.id.profileNav) {
             // Handle the camera action
         } else if (id == R.id.seatNav) {
+            Intent intent = new Intent(ReservationActivity.this, MainActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.foodNav) {
-            Intent intent = new Intent(this, FoodStallsActivity.class);
+            Intent intent = new Intent(ReservationActivity.this, FoodStallsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.payNav) {
 
         } else if (id == R.id.rewardNav) {
+            Intent intent = new Intent(ReservationActivity.this, RewardActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.historyNav) {
 
@@ -189,6 +200,20 @@ public class ReservationActivity extends AppCompatActivity  implements Navigatio
     public void menuIntent(View view){
         Intent intent = new Intent(this, FoodStallsActivity.class);
         startActivity(intent);
+    }
+
+    public void rewardIntent(View view){
+        Intent intent = new Intent(this, RewardActivity.class);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ReservationActivity.this, MainActivity.class);
+        startActivity(intent);
+
     }
 }
 

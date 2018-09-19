@@ -1,18 +1,26 @@
 package com.example.mathmurder.tablehitch;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class FoodItemActivity extends AppCompatActivity {
 
@@ -44,19 +52,30 @@ public class FoodItemActivity extends AppCompatActivity {
 
 
 
+    private int selectionCounter;
+    public static ArrayList<String> selectedItems = new ArrayList<String>();
+    private boolean hasBeenSelected;
+    private Button removeFood;
+    TextView foodQuantity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_item);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Log.i("toolbar", "clicked on back in toolbar");
+                if(selectedItems.size()!=0){
+                    Toast.makeText(FoodItemActivity.this, "Selected items are removed", Toast.LENGTH_LONG).show();
+                    selectedItems.clear();
+                }
+                startActivity(new Intent(getApplicationContext(),FoodStallsActivity.class));
+//                finish();
             }
         });
 
@@ -171,17 +190,79 @@ public class FoodItemActivity extends AppCompatActivity {
 
 
         gridView.setClickable(true);
+
+
+
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                Intent intent = new Intent (FoodItemActivity.this, OrderActivity.class);
-                intent.putExtra("pos", pos);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                foodQuantity = (TextView)view.findViewById(R.id.foodQuantity);
+                if(foodQuantity.getText().toString().equals("Selected")){
+                    foodQuantity.setText("Unselected");
+                    view.setBackgroundColor(getResources().getColor(R.color.iron));
+                    selectedItems.remove(stalls[position] + "\t\t\t\t" + prices[position]);
+                }
+                else{
+                    foodQuantity.setText("Selected");
+                    view.setBackgroundColor(getResources().getColor(R.color.aluminum));
+                    selectedItems.add(stalls[position] + "\t\t\t\t" + prices[position]);
+                }
             }
         });
+
+        Button orderBtn = findViewById(R.id.confirmOrderBtn);
+        orderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(selectedItems.size()==0){
+                    Toast.makeText(FoodItemActivity.this, "You have not selected any food.", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    startActivity(new Intent(getApplicationContext(), OrderActivity.class));
+                }
+            }
+        });
+
+
+
+       // selectionCounter +=1;
+//        Log.i("clicked in gridview ",selectedItems.get(selectionCounter-2));
+
+
+               // Intent intent = new Intent (FoodItemActivity.this, OrderActivity.class);
+
+                //intent.putExtra("pos", pos);
+                //startActivity(intent);
+
+
+
+
     }
+//    public void clickQuantity(View view){
+//        TextView tv = (TextView) view;
+//        View a = view.getRootView().findViewById(R.id.quantity);
+//
+//        TextView toUpdate = (TextView) a.findViewById(R.id.foodQuantity);
+//        String currentText = toUpdate.getText().toString();
+//        String[] split = currentText.split(" ");
+//        int currentNum = Integer.parseInt(split[1]);
+//        if(tv.getId()==R.id.addItem){
+//            currentNum += 1;
+//            toUpdate.setText("x " + currentNum);
+//        }
+//        if(tv.getId()==R.id.subtractItem){
+//            currentNum -= 1;
+//            toUpdate.setText("x " + currentNum);
+//        }
+//
+//
+//    }
 
     class CustomAdapter extends BaseAdapter {
+
+        String itemSelected;
+        TextView stallNameTV, priceTV, quantity;
 
         @Override
         public int getCount() {
@@ -190,7 +271,8 @@ public class FoodItemActivity extends AppCompatActivity {
 
         @Override
         public Object getItem(int i) {
-            return null;
+            return stallNameTV.getText() + " " + priceTV.getText();
+           // return null;
         }
 
         @Override
@@ -203,8 +285,8 @@ public class FoodItemActivity extends AppCompatActivity {
             view =  getLayoutInflater().inflate(R.layout.custom_grid_layout, null);
 
             ImageView imageView = (ImageView) view.findViewById(R.id.imageViewGV);
-            TextView stallNameTV = (TextView) view.findViewById(R.id.stallNameGV);
-            TextView priceTV = (TextView) view.findViewById(R.id.priceTV);
+            stallNameTV = (TextView) view.findViewById(R.id.stallNameGV);
+            priceTV = (TextView) view.findViewById(R.id.priceTV);
 
             imageView.setImageResource(images[i]);
             stallNameTV.setText(stalls[i]);

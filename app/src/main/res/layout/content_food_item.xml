@@ -9,16 +9,16 @@
     android:orientation="vertical"
     tools:showIn="@layout/activity_food_item">
 
-
-    <TextView
+    <com.example.mathmurder.tablehitch.TitleTextView
         android:id="@+id/pageTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Menu Items"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:textColor="@android:color/black"
+        android:layout_weight="2"
         android:textSize="30sp"/>
 
     <GridView
@@ -26,8 +26,19 @@
         android:layout_width="match_parent"
         android:numColumns="2"
         android:scrollbarSize="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="15">
 
     </GridView>
+
+    <Button
+        android:text="confirm order"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:id="@+id/confirmOrderBtn"
+        android:layout_gravity="bottom"
+        />
 
 </LinearLayout>

@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
@@ -108,26 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -190,13 +169,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
       //  pulling.doSomething();
 
+        Button reward = (Button) findViewById(R.id.rewardButton);
+        reward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RewardActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -222,5 +204,12 @@ public class MainActivity extends AppCompatActivity {
     public void fillTables(){
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
 }

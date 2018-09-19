@@ -106,11 +106,7 @@ public class LoadingActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-        new CountDownTimer(6000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
+        new CountDownTimer(4000, 1000) { //40000 milli seconds is total time, 1000 milli seconds is time interval
 
             public void onTick(long millisUntilFinished) {
 
